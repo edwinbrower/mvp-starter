@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Shiba Inu Gif Generator
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > This product is for everyone who loves Shiba Inus and love gifs!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This product will make a gif of a shiba inu appear with a single click.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Shiba Inu Gif Generator solves the problem of how difficult it is to search for cute Shiba Inus.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > This product will query the Giphy API and store Shiba Inus gifs in our database. You will be able to get those to appear on the page with a single click!
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "Shiba Inus are great! We have you to be able to see cute dogs in a nice way"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > All you have to do is click to see your first Shiba.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I love this product so much but can only make it through 2 clicks because the shibas are too cute!"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Click the index.html file to watch the magic happen!

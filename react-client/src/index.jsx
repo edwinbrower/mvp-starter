@@ -12,25 +12,43 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
+    // $.ajax({
+    //   // url: '/items', 
+    //   url: gitGifs('cute puppies'),
+    //   success: (data) => {
+    //     this.setState({
+    //       items: data
+    //     })
+    //   },
+    //   error: (err) => {
+    //     console.log('err', err);
+    //   }
+    // });
+    this.getGifs('cute puppies');
+  }
+  
+  getGifs(query) {
+    var options = {
+      key: 'dc6zaTOxFJmzC',
+      query: query
+    };
+    this.props.searchGiphy(options, (gifs) => {
+      this.setState({
+        items: gifs
+      });
     });
   }
 
+  // searchGiphy({'dc6zaTOxFJmzC', 'cute puppies'}, callback);
+
+
   render () {
     return (<div>
-      <h1>Item List</h1>
+      <h1>Puppy Gif List</h1>
       <List items={this.state.items}/>
     </div>)
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));
+// searchGiphy={searchGiphy}

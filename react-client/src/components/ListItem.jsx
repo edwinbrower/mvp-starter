@@ -5,7 +5,7 @@ const ListItem = (props) => (
     { props.item.slug }
 
     <div>
-      <img src={props.item.images.original.url} alt="" />
+      <img src={props.item.images.fixed_width.url} alt="" />
     </div>
     <button>New Puppies!</button>
     <button>Favorite!</button>

@@ -31,7 +31,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Puppy Gif List</h1>
+      <h1>Puppy Party</h1>
       {this.state.gifs && <List gifs={this.state.gifs}/>}
     </div>)
   }

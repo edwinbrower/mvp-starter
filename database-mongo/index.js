@@ -1,4 +1,6 @@
+var $ = require('jquery');
 var mongoose = require('mongoose');
+// var searchGiphy = require(''); //// correct path 
 mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
@@ -18,11 +20,6 @@ var gifSchema = mongoose.Schema({
   url: String,
   favorites: Number
 });
-
-
-
-
-
 
 var Gif = mongoose.model('Gif', gifSchema);
 
@@ -63,7 +60,40 @@ gifSchema.pre('', function(next) {
 
 });
 
-___ApiResult___.data.map(function(gif){
+var searchGiphy = ({key, query}, callback) => {
+  $.get('http://api.giphy.com/v1/gifs/search', {
+    q: query,
+    limit: 100,
+    api_key: key,
+  })
+  .done(({data}) => {
+    if (callback) {
+      callback(data);
+    }
+  })
+  .fail(({responseJSON}) => {
+    responseJSON.error.errors.forEach((err) =>
+      console.error(err)
+    );
+  });
+};
+
+// componentDidMount() { 
+//   this.getGifs('cute puppies');
+// }
+var getGifs = (query) => {
+  var options = {
+    key: 'dc6zaTOxFJmzC',
+    query: query
+  };
+  searchGiphy(options, (gifs) => {
+    console.log('gifs in db: ', gifs)
+  });
+};
+
+console.log();
+
+getGifs('cute puppies').data.map(function(gif){
   return new Gif({
     index: index, /// want this to auto increment // can this be done with _id?
     id: this.id,

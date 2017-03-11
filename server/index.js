@@ -1,5 +1,5 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 var gifs = require('../database-mongo');
 
 var app = express();
@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 // UNCOMMENT FOR ANGULAR
 // app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
+// app.use(express.(__dirname + '/../node_modules'));
 
 app.get('/gifs', function (req, res) {
   gifs.selectAll(function(err, data) {

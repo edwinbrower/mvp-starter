@@ -6,7 +6,7 @@ const ListItem = (props) => (
       <img src={props.gif.images.fixed_width.url} alt={ props.gif.slug } />
       <p>Times this cutie has been loved: 0</p>
     </div>
-    <button>Plz show moar!</button>
+    <button>Bye!</button>
     <button>Love</button>
   </div>
 )

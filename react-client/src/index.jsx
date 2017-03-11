@@ -12,33 +12,33 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      // url: '/gifs', 
-      url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=2&api_key=dc6zaTOxFJmzC',
-      // url: gitGifs('cute puppies'),
-      success: (data) => {
-        this.setState({
-          gifs: data.data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    }); 
-    // this.getGifs('cute puppies');
+    // $.ajax({
+    //   url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=2&api_key=dc6zaTOxFJmzC',
+    //   // url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cute+puppies',
+    //   // url: gitGifs('cute puppies'),
+    //   success: (data) => {
+    //     this.setState({
+    //       gifs: data.data
+    //     })
+    //   },
+    //   error: (err) => {
+    //     console.log('err', err);
+    //   }
+    // }); 
+    this.getGifs('cute puppies');
   }
   
-  // getGifs(query) {
-  //   var options = {
-  //     key: 'dc6zaTOxFJmzC',
-  //     query: query
-  //   };
-  //   this.props.searchGiphy(options, (gifs) => {
-  //     this.setState({
-  //       gifs: gifs
-  //     });
-  //   });
-  // }
+  getGifs(query) {
+    var options = {
+      key: 'dc6zaTOxFJmzC',
+      query: query
+    };
+    window.searchGiphy(options, (gifs) => {
+      this.setState({
+        gifs: gifs
+      });
+    });
+  }
 
   // searchGiphy({'dc6zaTOxFJmzC', 'cute puppies'}, callback);
 

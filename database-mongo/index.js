@@ -19,9 +19,8 @@ var gifSchema = mongoose.Schema({
   favorites: Number
 });
 
-// look into giving an array of right shape (like the above) the turn into my db.
-// will need to map to accomplish this.
-// for connection i will read file once then store it
+
+
 
 
 
@@ -60,6 +59,23 @@ var selectRandom = function(callback) {
 
 //db.yourCollection.find().limit(-1).skip(yourRandomNumber).next()
 
+gifSchema.pre('', function(next) {
+
+});
+
+___ApiResult___.data.map(function(gif){
+  return new Gif({
+    index: index, /// want this to auto increment // can this be done with _id?
+    id: this.id,
+    slug: this.slug,
+    url: this.images.fixed_width.url, // this????
+    favorites: 0
+  });
+})
+
+// look into giving an array of right shape (like the above) the turn into my db.
+// will need to map to accomplish this.
+// for connection i will read file once then store it
 
 
 

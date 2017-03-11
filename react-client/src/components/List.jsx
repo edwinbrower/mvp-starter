@@ -5,8 +5,8 @@ const List = (props) => (
   <div>
     <h4> List Component </h4>
     {console.log('hello', props)}
-    <ListItem item={props.gifs[ Math.floor(Math.random() * 50)]}/>
-    <ListItem item={props.gifs[ Math.floor(Math.random() * 50)]}/>
+    <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
+    <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
   </div>
 )
 

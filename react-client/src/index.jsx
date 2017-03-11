@@ -22,7 +22,6 @@ class App extends React.Component {
       query: query
     };
     searchGiphy(options, (gifs) => {
-      console.log('gifs: ', gifs);
       this.setState({
         gifs: gifs
       });

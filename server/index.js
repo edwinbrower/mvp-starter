@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var items = require('../database-mongo');
+var gifs = require('../database-mongo');
 
 var app = express();
 
@@ -11,8 +11,8 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 // app.use(express.static(__dirname + '/../angular-client'));
 // app.use(express.static(__dirname + '/../node_modules'));
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
+app.get('/gifs', function (req, res) {
+  gifs.selectAll(function(err, data) {
     if(err) {
       res.sendStatus(500);
     } else {

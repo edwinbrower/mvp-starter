@@ -11,32 +11,34 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  // quantity: Number,
-  // description: String
-  url: String
+var gifSchema = mongoose.Schema({
+  index: Number,
+  id: String,
+  url: String,
+  favorite: Number
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Gif = mongoose.model('Gif', gifSchema);
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  Gif.find({}, function(err, gifs) {
     if(err) {
       callback(err, null);
     } else {
-      callback(null, items);
+      callback(null, gifs);
     }
   });
 };
 
 var selectRandom = function(callback) {
-  Item.find({}, function(err, items) {
+  Gif.find({}, function(err, gifs) {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, items);
+      callback(null, gifs);
     }
   });
 }
 
 module.exports.selectAll = selectAll;
+module.exports.selectRandom = selectRandom;

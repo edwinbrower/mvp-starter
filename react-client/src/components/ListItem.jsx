@@ -2,6 +2,7 @@ import React from 'react';
 
 const ListItem = (props) => (
   <div>
+    { props.item.slug }
 
     <div>
       <img src={props.item.images.original.url} alt="" />
@@ -13,7 +14,6 @@ const ListItem = (props) => (
 
 export default ListItem;
 
-    // { props.item.slug }
       // <img src={props.item.image_original_url} alt="" />
       // <img src={props.item.image_original_url} alt="" />
      

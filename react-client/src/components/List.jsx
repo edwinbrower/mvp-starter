@@ -1,6 +1,5 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
-import maxResults from '../lib/searchGiphy.js'
 
 const List = (props) => (
   <div>

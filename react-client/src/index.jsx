@@ -25,7 +25,7 @@ class App extends React.Component {
       console.log('gifs: ', gifs);
       this.setState({
         gifs: gifs
-      }, () => {console.log('this state: ', this.state)});
+      });
     });
   }
 

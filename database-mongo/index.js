@@ -12,11 +12,18 @@ db.once('open', function() {
 });
 
 var gifSchema = mongoose.Schema({
-  index: Number,
+  index: Number,  // we might need _id.  ill want to console log later to see if it appears and what it looks like
   id: String,
+  slug: String,
   url: String,
-  favorite: Number
+  favorites: Number
 });
+
+// look into giving an array of right shape (like the above) the turn into my db.
+// will need to map to accomplish this.
+// for connection i will read file once then store it
+
+
 
 var Gif = mongoose.model('Gif', gifSchema);
 
@@ -30,8 +37,8 @@ var selectAll = function(callback) {
   });
 };
 
-var selectRandom = function(callback) {
-  Gif.find({}, function(err, gifs) {
+var insertAll = function (callback) {
+  Gif.insertMany(arrayOfGifShape, function(err, gifs) {
     if (err) {
       callback(err, null);
     } else {
@@ -40,5 +47,22 @@ var selectRandom = function(callback) {
   });
 }
 
+var selectRandom = function(callback) {
+  var randomIndex = Math.floor(Math.random() * 100);
+  Gif.find({ index: randomIndex }, function(err, gifs) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, gifs);
+    }
+  });
+}
+
+//db.yourCollection.find().limit(-1).skip(yourRandomNumber).next()
+
+
+
+
 module.exports.selectAll = selectAll;
 module.exports.selectRandom = selectRandom;
+module.exports.insertAll = insertAll;

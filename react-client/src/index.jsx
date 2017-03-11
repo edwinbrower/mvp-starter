@@ -7,37 +7,38 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      gifs: []
     }
   }
 
   componentDidMount() {
-    // $.ajax({
-    //   // url: '/items', 
-    //   url: gitGifs('cute puppies'),
-    //   success: (data) => {
-    //     this.setState({
-    //       items: data
-    //     })
-    //   },
-    //   error: (err) => {
-    //     console.log('err', err);
-    //   }
-    // });
-    this.getGifs('cute puppies');
+    $.ajax({
+      // url: '/gifs', 
+      url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=2&api_key=dc6zaTOxFJmzC',
+      // url: gitGifs('cute puppies'),
+      success: (data) => {
+        this.setState({
+          gifs: data.data
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    }); 
+    // this.getGifs('cute puppies');
   }
   
-  getGifs(query) {
-    var options = {
-      key: 'dc6zaTOxFJmzC',
-      query: query
-    };
-    this.props.searchGiphy(options, (gifs) => {
-      this.setState({
-        items: gifs
-      });
-    });
-  }
+  // getGifs(query) {
+  //   var options = {
+  //     key: 'dc6zaTOxFJmzC',
+  //     query: query
+  //   };
+  //   this.props.searchGiphy(options, (gifs) => {
+  //     this.setState({
+  //       gifs: gifs
+  //     });
+  //   });
+  // }
 
   // searchGiphy({'dc6zaTOxFJmzC', 'cute puppies'}, callback);
 
@@ -45,7 +46,7 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Puppy Gif List</h1>
-      <List items={this.state.items}/>
+      <List gifs={this.state.gifs}/>
     </div>)
   }
 }

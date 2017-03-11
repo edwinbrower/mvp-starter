@@ -33,7 +33,7 @@ class App extends React.Component {
       key: 'dc6zaTOxFJmzC',
       query: query
     };
-    window.searchGiphy(options, (gifs) => {
+    this.props.searchGiphy(options, (gifs) => {
       this.setState({
         gifs: gifs
       });

@@ -1,13 +1,10 @@
 import $ from 'jquery';
 
 var searchGiphy = ({key, query}, callback) => {
-  //API KEY: dc6zaTOxFJmzC
   $.get('http://api.giphy.com/v1/gifs/search', {
-    // part: 'snippet',
     q: query,
     limit: 4,
     api_key: key,
-    // videoEmbeddable: 'true'
   })
   .done(({data}) => {
     if (callback) {
@@ -21,8 +18,5 @@ var searchGiphy = ({key, query}, callback) => {
     );
   });
 };
-
-
-// // window.searchGiphy = searchGiphy; 
 
 export default searchGiphy;

@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
+import searchGiphy from './lib/searchGiphy.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      gifs: []
+      gifs: null
     }
   }
 
@@ -17,9 +18,10 @@ class App extends React.Component {
     //   // url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cute+puppies',
     //   // url: gitGifs('cute puppies'),
     //   success: (data) => {
+    //     console.log("success Data", data);
     //     this.setState({
     //       gifs: data.data
-    //     })
+    //     }, () => {console.log(this.state.gifs);})
     //   },
     //   error: (err) => {
     //     console.log('err', err);
@@ -33,10 +35,11 @@ class App extends React.Component {
       key: 'dc6zaTOxFJmzC',
       query: query
     };
-    this.props.searchGiphy(options, (gifs) => {
+    searchGiphy(options, (gifs) => {
+      console.log('gifs: ', gifs);
       this.setState({
         gifs: gifs
-      });
+      }, () => {console.log('this state: ', this.state)});
     });
   }
 
@@ -46,7 +49,7 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Puppy Gif List</h1>
-      <List gifs={this.state.gifs}/>
+      {this.state.gifs && <List gifs={this.state.gifs}/>}
     </div>)
   }
 }

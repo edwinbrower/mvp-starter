@@ -28,6 +28,20 @@ class App extends React.Component {
     });
   }
 
+  // componentDidMount() {
+  //   $.ajax({
+  //     url: '/gifs', 
+  //     success: (data) => {
+  //       this.setState({
+  //         gifs: data
+  //       })
+  //     },
+  //     error: (err) => {
+  //       console.log('err', err);
+  //     }
+  //   });
+  // }
+
   render () {
     return (<div>
       <h1>Puppy Party</h1>

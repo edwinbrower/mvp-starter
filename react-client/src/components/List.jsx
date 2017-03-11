@@ -3,7 +3,7 @@ import ListItem from './ListItem.jsx';
 
 const List = (props) => (
   <div>
-    <h4> List Component </h4>
+    <h4> When the cuteness is too much to handle, choose another puppy! </h4>
     {console.log('hello', props)}
     <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
     <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>

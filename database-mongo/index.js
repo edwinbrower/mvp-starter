@@ -3,6 +3,7 @@
 // var http = require('http');
 var mongoose = require('mongoose');
 // var searchGiphy = require(''); //// correct path 
+var Gif = require('./models/gif.js');
 mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
@@ -13,48 +14,50 @@ db.on('error', function() {
 
 db.once('open', function() {
   console.log('mongoose connected successfully');
-});
+}); 
 
-var gifSchema = mongoose.Schema({
-  index: Number,  // i might need _id.  ill want to console log later to see if it appears and what it looks like
-  id: String,
-  slug: String,
-  url: String,
-  favorites: Number
-});
+module.exports = db;
 
-var Gif = mongoose.model('Gif', gifSchema);
+// var gifSchema = mongoose.Schema({
+//   index: Number,  // i might need _id.  ill want to console log later to see if it appears and what it looks like
+//   id: String,
+//   slug: String,
+//   url: String,
+//   favorites: Number
+// });
 
-var selectAll = function(callback) {
-  Gif.find({}, function(err, gifs) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, gifs);
-    }
-  });
-};
+// var Gif = mongoose.model('Gif', gifSchema);
 
-var insertAll = function (callback) {
-  Gif.insertMany(arrayOfGifShape, function(err, gifs) {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, gifs);
-    }
-  });
-}
+// var selectAll = function(callback) {
+//   Gif.find({}, function(err, gifs) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, gifs);
+//     }
+//   });
+// };
 
-var selectRandom = function(callback) {
-  var randomIndex = Math.floor(Math.random() * 100);
-  Gif.find({ index: randomIndex }, function(err, gifs) {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, gifs);
-    }
-  });
-}
+// var insertAll = function (callback) {
+//   Gif.insertMany(arrayOfGifShape, function(err, gifs) {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, gifs);
+//     }
+//   });
+// }
+
+// var selectRandom = function(callback) {
+//   var randomIndex = Math.floor(Math.random() * 100);
+//   Gif.find({ index: randomIndex }, function(err, gifs) {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, gifs);
+//     }
+//   });
+// }
 
 //db.yourCollection.find().limit(-1).skip(yourRandomNumber).next()
 
@@ -62,36 +65,36 @@ var selectRandom = function(callback) {
 
 // });
 
-var searchGiphy = ({key, query}, callback) => {
-  $.get('http://api.giphy.com/v1/gifs/search', {
-    q: query,
-    limit: 100,
-    api_key: key,
-  })
-  .done(({data}) => {
-    if (callback) {
-      callback(data);
-    }
-  })
-  .fail(({responseJSON}) => {
-    responseJSON.error.errors.forEach((err) =>
-      console.error(err)
-    );
-  });
-};
+// var searchGiphy = ({key, query}, callback) => {
+//   $.get('http://api.giphy.com/v1/gifs/search', {
+//     q: query,
+//     limit: 100,
+//     api_key: key,
+//   })
+//   .done(({data}) => {
+//     if (callback) {
+//       callback(data);
+//     }
+//   })
+//   .fail(({responseJSON}) => {
+//     responseJSON.error.errors.forEach((err) =>
+//       console.error(err)
+//     );
+//   });
+// };
 
 // componentDidMount() { 
 //   this.getGifs('cute puppies');
 // }
-var getGifs = (query) => {
-  var options = {
-    key: 'dc6zaTOxFJmzC',
-    query: query
-  };
-  searchGiphy(options, (gifs) => {
-    console.log('gifs in db: ', gifs)
-  });
-};
+// var getGifs = (query) => {
+//   var options = {
+//     key: 'dc6zaTOxFJmzC',
+//     query: query
+//   };
+//   searchGiphy(options, (gifs) => {
+//     console.log('gifs in db: ', gifs)
+//   });
+// };
 
 // console.log();
 
@@ -99,15 +102,15 @@ var getGifs = (query) => {
 // var getGifs = app.get('/results', function(req, res) {
 //   url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC';
 // });
-getGifs('cute puppies').data.map(function(gif){
-  return new Gif({
-    index: index, /// want this to auto increment // can this be done with _id?
-    id: this.id,
-    slug: this.slug,
-    url: this.images.fixed_width.url, // this????
-    favorites: 0
-  });
-})
+// getGifs('cute puppies').data.map(function(gif){
+//   return new Gif({
+//     index: index, /// want this to auto increment // can this be done with _id?
+//     id: this.id,
+//     slug: this.slug,
+//     url: this.images.fixed_width.url, // this????
+//     favorites: 0
+//   });
+// })
 
 
 
@@ -117,6 +120,6 @@ getGifs('cute puppies').data.map(function(gif){
 
 
 
-module.exports.selectAll = selectAll;
-module.exports.selectRandom = selectRandom;
-module.exports.insertAll = insertAll;
+// module.exports.selectAll = selectAll;
+// module.exports.selectRandom = selectRandom;
+// module.exports.insertAll = insertAll;

@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 
 db.on('error', function() {
-  console.log('mongoose connection error');
+  console.log('mongoose connection error', console.error.bind(console, 'connection error:'));
 });
 
 db.once('open', function() {
@@ -62,36 +62,36 @@ var selectRandom = function(callback) {
 
 // });
 
-// var searchGiphy = ({key, query}, callback) => {
-//   $.get('http://api.giphy.com/v1/gifs/search', {
-//     q: query,
-//     limit: 100,
-//     api_key: key,
-//   })
-//   .done(({data}) => {
-//     if (callback) {
-//       callback(data);
-//     }
-//   })
-//   .fail(({responseJSON}) => {
-//     responseJSON.error.errors.forEach((err) =>
-//       console.error(err)
-//     );
-//   });
-// };
+var searchGiphy = ({key, query}, callback) => {
+  $.get('http://api.giphy.com/v1/gifs/search', {
+    q: query,
+    limit: 100,
+    api_key: key,
+  })
+  .done(({data}) => {
+    if (callback) {
+      callback(data);
+    }
+  })
+  .fail(({responseJSON}) => {
+    responseJSON.error.errors.forEach((err) =>
+      console.error(err)
+    );
+  });
+};
 
 // componentDidMount() { 
 //   this.getGifs('cute puppies');
 // }
-// var getGifs = (query) => {
-//   var options = {
-//     key: 'dc6zaTOxFJmzC',
-//     query: query
-//   };
-//   searchGiphy(options, (gifs) => {
-//     console.log('gifs in db: ', gifs)
-//   });
-// };
+var getGifs = (query) => {
+  var options = {
+    key: 'dc6zaTOxFJmzC',
+    query: query
+  };
+  searchGiphy(options, (gifs) => {
+    console.log('gifs in db: ', gifs)
+  });
+};
 
 // console.log();
 
@@ -99,15 +99,15 @@ var selectRandom = function(callback) {
 // var getGifs = app.get('/results', function(req, res) {
 //   url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC';
 // });
-// getGifs('cute puppies').data.map(function(gif){
-//   return new Gif({
-//     index: index, /// want this to auto increment // can this be done with _id?
-//     id: this.id,
-//     slug: this.slug,
-//     url: this.images.fixed_width.url, // this????
-//     favorites: 0
-//   });
-// })
+getGifs('cute puppies').data.map(function(gif){
+  return new Gif({
+    index: index, /// want this to auto increment // can this be done with _id?
+    id: this.id,
+    slug: this.slug,
+    url: this.images.fixed_width.url, // this????
+    favorites: 0
+  });
+})
 
 
 

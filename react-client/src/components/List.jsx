@@ -3,12 +3,17 @@ import ListItem from './ListItem.jsx';
 
 const List = (props) => (
   <div>
-    <h4> When the cuteness is too much to handle, choose another puppy! </h4>
+    <h4> When a puppy's cuteness is too much to handle, tell goodbye wait for another puppy! </h4>
     {console.log('hello', props)}
     <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
     <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
   </div>
 )
+/// I WILL PASS DOWN STATE AS THE ID. NEED TO HANDLE CLICK
+
+
+
+// <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
 
 export default List;
     // {

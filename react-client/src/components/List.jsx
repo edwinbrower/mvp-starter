@@ -5,8 +5,8 @@ const List = (props) => (
   <div>
     <h4> When a puppy's cuteness is too much to handle, say goodbye and wait for another puppy! </h4>
     {console.log('hello', props)}
-    <ListItem gif={props.gifs[props.gifIndex0]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick}/>
-    <ListItem gif={props.gifs[props.gifIndex1]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick}/>
+    <ListItem gif={props.gifs[props.gifIndex0]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
+    <ListItem gif={props.gifs[props.gifIndex1]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
   </div>
 )
 /// I WILL PASS DOWN STATE AS THE ID. NEED TO HANDLE CLICK

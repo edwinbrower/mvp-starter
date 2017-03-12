@@ -14,7 +14,8 @@ class App extends React.Component {
       gifIndex0: 0,
       gifIndex1: 1,
       gif0: null,
-      gif1: null
+      gif1: null,
+      loves: 0
     }
   }
 
@@ -47,7 +48,6 @@ class App extends React.Component {
       this.setState({
         // currentGif: gif,
         // currentGifIndex: Math.floor(Math.random() * 100),
-        // gif0: this.state.gifs[Math.floor(Math.random() * 100)],
         gifIndex0: random,
         gif0: this.state.gifs[random]
       });
@@ -55,11 +55,16 @@ class App extends React.Component {
       this.setState({
         // currentGif: gif,
         // currentGifIndex: Math.floor(Math.random() * 100),
-        // gif1: this.state.gifs[Math.floor(Math.random() * 100)],
         gifIndex1: random,
         gif1: this.state.gifs[random]
       });
     }
+  }
+
+  handleGifLoveClick(gif) {
+    this.setState({
+      loves: ++this.state.loves
+    });
   }
 
   // componentDidMount() {
@@ -77,10 +82,11 @@ class App extends React.Component {
   // }
 
   render () {
-    return (<div>
+    return (<div className="background">
       <h1>Puppy Party</h1>
       {console.log('app ', this.state)}
-      {this.state.gifs && <List gifs={this.state.gifs} currentGif={this.state.currentGif} currentGifIndex={this.state.currentGifIndex} gifIndex0={this.state.gifIndex0} gifIndex1={this.state.gifIndex1} handleListItemEntryTitleClick={this.handleListItemEntryTitleClick.bind(this)}/>}
+      {this.state.gifs && <List gifs={this.state.gifs} currentGif={this.state.currentGif} currentGifIndex={this.state.currentGifIndex} gifIndex0={this.state.gifIndex0} gifIndex1={this.state.gifIndex1} handleListItemEntryTitleClick={this.handleListItemEntryTitleClick.bind(this)} handleGifLoveClick={this.handleGifLoveClick.bind(this)} loves={this.state.loves}/>}
+      Total love count: {this.state.loves}
     </div>)
   }
 }

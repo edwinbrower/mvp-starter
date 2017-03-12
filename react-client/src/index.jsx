@@ -11,8 +11,10 @@ class App extends React.Component {
       gifs: null,
       currentGifIndex: 0,
       currentGif: null,
-      gif0Index: 0,
-      gif1Index: 1
+      gifIndex0: 0,
+      gifIndex1: 1,
+      gif0: null,
+      gif1: null
     }
   }
 
@@ -29,18 +31,35 @@ class App extends React.Component {
       this.setState({
         gifs: gifs,
         currentGif: gifs[0],
-        currentGifIndex: Math.floor(Math.random() * 100),
-        gifIndex0: Math.floor(Math.random() * 100),
-        gifIndex1: Math.floor(Math.random() * 100)
+        gifIndex0: 0,
+        gifIndex1: 1,
+        gif0: gifs[0],
+        gif1: gifs[1]
       });
     });
   }
 
   handleListItemEntryTitleClick(gif) {
-    this.setState({
-      currentGif: gif,
-      currentGifIndex: Math.floor(Math.random() * 100),
-    });
+    console.log('passed gif', gif);
+    console.log('state', this.state);
+    var random = Math.floor(Math.random() * 100);
+    if (gif === this.state.gif0) {
+      this.setState({
+        // currentGif: gif,
+        // currentGifIndex: Math.floor(Math.random() * 100),
+        // gif0: this.state.gifs[Math.floor(Math.random() * 100)],
+        gifIndex0: random,
+        gif0: this.state.gifs[random]
+      });
+    } else {
+      this.setState({
+        // currentGif: gif,
+        // currentGifIndex: Math.floor(Math.random() * 100),
+        // gif1: this.state.gifs[Math.floor(Math.random() * 100)],
+        gifIndex1: random,
+        gif1: this.state.gifs[random]
+      });
+    }
   }
 
   // componentDidMount() {
@@ -60,7 +79,8 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Puppy Party</h1>
-      {this.state.gifs && <List gifs={this.state.gifs} currentGifIndex={this.state.currentGifIndex} gifIndex0={this.state.gifIndex0} gifIndex1={this.state.gifIndex1} handleListItemEntryTitleClick={this.handleListItemEntryTitleClick.bind(this)}/>}
+      {console.log('app ', this.state)}
+      {this.state.gifs && <List gifs={this.state.gifs} currentGif={this.state.currentGif} currentGifIndex={this.state.currentGifIndex} gifIndex0={this.state.gifIndex0} gifIndex1={this.state.gifIndex1} handleListItemEntryTitleClick={this.handleListItemEntryTitleClick.bind(this)}/>}
     </div>)
   }
 }

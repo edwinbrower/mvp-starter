@@ -1,6 +1,7 @@
 var express = require('express');
+var db = require('../database-mongo/index');
 // var bodyParser = require('body-parser');
-var gifs = require('../database-mongo');
+var gifs = require('../database-mongo/Models/gif');
 
 var app = express();
 

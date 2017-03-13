@@ -3,7 +3,7 @@
 // var http = require('http');
 var mongoose = require('mongoose');
 // var searchGiphy = require(''); //// correct path 
-var Gif = require('./models/gif.js');
+// var Gif = require('./models/gif.js');
 mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;

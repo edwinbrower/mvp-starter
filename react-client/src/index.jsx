@@ -35,24 +35,10 @@ class App extends React.Component {
         // })
       },
       error: (err) => {
-        console.log('err', err);
+        console.log(err);
       }
     });
   }
-    // $.ajax({
-    //   url: '/gifs',
-    //   type: 'GET',
-    //   success: (redditData) => {
-    //     redditData = (JSON.parse(redditData)).data.children;
-    //     console.log(redditData[0], 'this is what I hoped to be an array', 'is it?', Array.isArray(redditData));
-    //     this.setState({
-    //       items: redditData
-    //     })
-    //   },
-    //   error: (err) => {
-    //     console.log('err from inside componentDidMount', err);
-    //   }
-    // });
   
   getGifs(query) {
     var options = {

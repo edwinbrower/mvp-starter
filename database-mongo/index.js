@@ -19,7 +19,6 @@ db.once('open', function() {
   //     // console.log((JSON.parse(body)).data);
   //     (JSON.parse(body)).data.forEach(function(gif) {
   //       var newGif = new Gif ({
-  //         index: 0, /// want this to auto increment // can this be done with _id?
   //         id: gif.id,
   //         slug: gif.slug,
   //         url: gif.images.fixed_width.url, // this????

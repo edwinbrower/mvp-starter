@@ -93,6 +93,13 @@ request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc
         url: gif.images.fixed_width.url, // this????
         favorites: 0
       });
+      test.save(function(err, gif) {
+        if (err) {
+          console.log(err);
+        } else {
+          // console.log(gif);
+        }
+      }); 
     });
   }
 });

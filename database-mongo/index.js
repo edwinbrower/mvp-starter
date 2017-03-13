@@ -2,7 +2,7 @@
 // import $ from 'jquery';
 // var http = require('http');
 var mongoose = require('mongoose');
-// var searchGiphy = require(''); //// correct path 
+var searchGiphy = require('../server/lib/searchGiphy'); //// correct path 
 // var Gif = require('./models/gif.js');
 mongoose.connect('mongodb://localhost/test');
 
@@ -13,6 +13,7 @@ db.on('error', function() {
 });
 
 db.once('open', function() {
+  // can i add it here??
   console.log('mongoose connected successfully');
 }); 
 

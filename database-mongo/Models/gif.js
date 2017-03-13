@@ -1,5 +1,7 @@
 var db = require('../index.js');
 var mongoose = require('mongoose');
+var request = require('request');
+// var searchGiphy = require('.../server/lib/searchGiphy'); //// correct path 
 var autoIncrement = require("mongodb-autoincrement");
 // mongoose.plugin(autoIncrement.mongoosePlugin);
 
@@ -7,6 +9,7 @@ var autoIncrement = require("mongodb-autoincrement");
 var gifSchema = mongoose.Schema({
   // _id: Number,
   index: Number,  // i might need _id.  ill want to console log later to see if it appears and what it looks like
+  // might be able to just get random twice... uugggg
   id: String,
   slug: String,
   url: String,
@@ -76,6 +79,23 @@ test.save(function(err, gif) {
     console.log(gif);
   }
 });  
+
+request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC', function(err, response, body) {
+  if (err) {
+    console.log(err);
+  } else {
+    // console.log((JSON.parse(body)).data);
+    (JSON.parse(body)).data.forEach(function(gif) {
+      var newGif = new Gif ({
+        index: 0, /// want this to auto increment // can this be done with _id?
+        id: gif.id,
+        slug: gif.slug,
+        url: gif.images.fixed_width.url, // this????
+        favorites: 0
+      });
+    });
+  }
+});
 
 // db.createCollection("counters");
 

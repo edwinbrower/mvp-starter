@@ -24,15 +24,16 @@ class App extends React.Component {
 // will try to get favorites working again
 
   componentDidMount() { 
-    this.getGifs('cute puppies');
+    // this.getGifs('cute puppies');
     $.ajax({
       url: '/gifs', 
       success: (data) => {
         console.log('did mount', data);
-        // this.getGifs('cute puppies');
-        // this.setState({
-        //   gifs: data
-        // })
+        this.setState({
+          gifs: data,
+          gif0: data[0],
+          gif1: data[1]
+        })
       },
       error: (err) => {
         console.log(err);
@@ -40,25 +41,25 @@ class App extends React.Component {
     });
   }
   
-  getGifs(query) {
-    var options = {
-      key: 'dc6zaTOxFJmzC',
-      query: query
-    };
-    searchGiphy(options, (gifs) => {
-      this.setState({
-        gifs: gifs,
-        currentGif: gifs[0],
-        gifIndex0: 0,
-        gifIndex1: 1,
-        gif0: gifs[0],
-        gif1: gifs[1]
-      });
-    });
-  }
+  // getGifs(query) {
+  //   var options = {
+  //     key: 'dc6zaTOxFJmzC',
+  //     query: query
+  //   };
+  //   searchGiphy(options, (gifs) => {
+  //     this.setState({
+  //       gifs: gifs,
+  //       currentGif: gifs[0],
+  //       gifIndex0: 0,
+  //       gifIndex1: 1,
+  //       gif0: gifs[0],
+  //       gif1: gifs[1]
+  //     });
+  //   });
+  // }
 
   handleListItemEntryTitleClick(gif) {
-    // Here should do a post request
+    // Here should do a post request // might not need to with how it's set up.
     // $.ajax({
     //   url: 'http://localhost:3000/',
     //   type: 'POST',

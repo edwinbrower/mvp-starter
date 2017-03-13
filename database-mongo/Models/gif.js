@@ -75,6 +75,11 @@ var randomNum = Math.floor(Math.random() * Gif.count())
 var result = Gif.find().limit(-1).skip(randomNum).next()
 */
 
+// gifSchema.pre('', function(next) {
+
+// });
+
+
 request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC', function(err, response, body) {
   if (err) {
     console.log(err);

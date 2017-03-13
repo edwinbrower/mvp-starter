@@ -9,15 +9,15 @@ var app = express();
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 
-// app.get('/gifs', function (req, res) {
-//   gifs.selectAll(function(err, data) {
-//     if(err) {
-//       res.sendStatus(500);
-//     } else {
-//       res.json(data);
-//     }
-//   });
-// });
+app.get('/gifs', function (req, res) {
+  gifs.selectAll(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
+});
 
 // var getGifs = app.get('/results', function(req, res) {
 //   url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC';

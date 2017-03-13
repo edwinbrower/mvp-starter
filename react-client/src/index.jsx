@@ -19,6 +19,10 @@ class App extends React.Component {
     }
   }
 
+// This should be getting just 2 random gifs from the db.
+// then should be testing from id
+// will try to get favorites working again
+
   componentDidMount() { 
     this.getGifs('cute puppies');
   }

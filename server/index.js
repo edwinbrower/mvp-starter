@@ -19,9 +19,13 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 //   });
 // });
 
-// var getGifs = app.get('/results', function(req, res) {
-//   url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC';
-// });
+var getGifs = app.get('/results', function(req, res) {
+  url: 'http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC';
+});
+ 
+// console.log(getGifs);
+
+
 // getGifs('cute puppies').data.map(function(gif){
 //   return new Gif({
 //     index: index, /// want this to auto increment // can this be done with _id?
@@ -52,3 +56,6 @@ app.listen(3000, function() {
   //     });
   //   });
   // }
+
+
+  // module.exports = app;

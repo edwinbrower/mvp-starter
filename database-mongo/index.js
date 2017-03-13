@@ -18,6 +18,11 @@ db.once('open', function() {
 
 module.exports = db;
 
+/*
+var randomNum = Math.floor(Math.random() * Gif.count())
+var result = Gif.find().limit(-1).skip(randomNum).next()
+*/
+
 // var gifSchema = mongoose.Schema({
 //   index: Number,  // i might need _id.  ill want to console log later to see if it appears and what it looks like
 //   id: String,

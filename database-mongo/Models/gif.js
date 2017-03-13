@@ -64,21 +64,21 @@ Gif.selectRandom = function(callback) {
 var randomNum = Math.floor(Math.random() * Gif.count())
 var result = Gif.find().limit(-1).skip(randomNum).next()
 */
-var test = new Gif({
-  index: 101, 
-  id: '123', 
-  slug: 'doggie', 
-  url: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-  favorites: 0  
-});
+// var test = new Gif({
+//   index: 101, 
+//   id: '123', 
+//   slug: 'doggie', 
+//   url: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+//   favorites: 0  
+// });
 
-test.save(function(err, gif) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(gif);
-  }
-});  
+// test.save(function(err, gif) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(gif);
+//   }
+// });  
 
 request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC', function(err, response, body) {
   if (err) {
@@ -93,7 +93,7 @@ request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc
         url: gif.images.fixed_width.url, // this????
         favorites: 0
       });
-      test.save(function(err, gif) {
+      newGif.save(function(err, gif) {
         if (err) {
           console.log(err);
         } else {

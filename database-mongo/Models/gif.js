@@ -60,6 +60,16 @@ var randomNum = Math.floor(Math.random() * Gif.count())
 Gif.selectRandom = function(callback) {
   Gif.find().limit(-1).skip(randomNum).next();
 };
+
+// Gif.clearTable = function(callback) {
+//   Gif.clear({}, function(err, gifs) {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, gifs);
+//     }
+//   });
+// };
 /*
 var randomNum = Math.floor(Math.random() * Gif.count())
 var result = Gif.find().limit(-1).skip(randomNum).next()
@@ -84,7 +94,11 @@ request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc
   if (err) {
     console.log(err);
   } else {
-    // console.log((JSON.parse(body)).data);
+    // Gif.remove({});
+    // db.gifs.remove({});
+    // Gif.clearTable();
+    // console.log('data refreshed');
+
     (JSON.parse(body)).data.forEach(function(gif) {
       var newGif = new Gif ({
         index: 0, /// want this to auto increment // can this be done with _id?

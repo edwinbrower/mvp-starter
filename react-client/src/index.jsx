@@ -25,7 +25,34 @@ class App extends React.Component {
 
   componentDidMount() { 
     this.getGifs('cute puppies');
+    $.ajax({
+      url: '/gifs', 
+      success: (data) => {
+        console.log('did mount', data);
+        // this.getGifs('cute puppies');
+        // this.setState({
+        //   gifs: data
+        // })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
   }
+    // $.ajax({
+    //   url: '/gifs',
+    //   type: 'GET',
+    //   success: (redditData) => {
+    //     redditData = (JSON.parse(redditData)).data.children;
+    //     console.log(redditData[0], 'this is what I hoped to be an array', 'is it?', Array.isArray(redditData));
+    //     this.setState({
+    //       items: redditData
+    //     })
+    //   },
+    //   error: (err) => {
+    //     console.log('err from inside componentDidMount', err);
+    //   }
+    // });
   
   getGifs(query) {
     var options = {
@@ -45,6 +72,34 @@ class App extends React.Component {
   }
 
   handleListItemEntryTitleClick(gif) {
+    // Here should do a post request
+    // $.ajax({
+    //   url: 'http://localhost:3000/',
+    //   type: 'POST',
+    //   success: () => {
+    //     var random = Math.floor(Math.random() * 100);
+    //     if (gif === this.state.gif0) {
+    //       this.setState({
+    //         // currentGif: gif,
+    //         // currentGifIndex: Math.floor(Math.random() * 100),
+    //         gifIndex0: random,
+    //         gif0: this.state.gifs[random]
+    //       });
+    //     } else {
+    //       this.setState({
+    //         // currentGif: gif,
+    //         // currentGifIndex: Math.floor(Math.random() * 100),
+    //         gifIndex1: random,
+    //         gif1: this.state.gifs[random]
+    //       });
+    //     }
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //   }
+    // });
+
+
     console.log('passed gif', gif);
     console.log('state', this.state);
     var random = Math.floor(Math.random() * 100);
@@ -66,24 +121,23 @@ class App extends React.Component {
   }
 
   handleGifLoveClick(gif) {
+    // $.ajax({
+    //   url: 'http://localhost:3000/',
+    //   type: 'POST',
+    //   success: () => {
+    //     this.setState({
+    //       loves: ++this.state.loves
+    //     });
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //   }
+    // });
     this.setState({
       loves: ++this.state.loves
     });
   }
 
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: '/gifs', 
-  //     success: (data) => {
-  //       this.setState({
-  //         gifs: data
-  //       })
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  // }
 
   render () {
     return (<div className="background">

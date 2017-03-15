@@ -3,7 +3,6 @@ import React from 'react';
 const ListItem = (props) => (
   <div>
     <div>
-      {console.log('items', props)}
       <img src={props.gif.url} alt={ props.gif.slug } />
     </div>
     <button onClick={() => props.handleListItemEntryTitleClick(props.gif)}>Bye!</button>

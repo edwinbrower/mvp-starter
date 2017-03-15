@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Shiba Inu Gif Generator
+  > Cute Puppy Gif Generator
 
 ## Sub-Heading ##
-  > This product is for everyone who loves Shiba Inus and love gifs!
+  > This product is for everyone who loves Cute Puppies and love gifs!
 
 ## Summary ##
-  > This product will make a gif of a shiba inu appear with a single click.
+  > This product will make a gif of a Cute Puppy appear with a single click.
 
 ## Problem ##
-  > Shiba Inu Gif Generator solves the problem of how difficult it is to search for cute Shiba Inus.
+  > Cute Puppy Gif Generator solves the problem of how difficult it is to search for cute Cute Puppies.
 
 ## Solution ##
-  > This product will query the Giphy API and store Shiba Inus gifs in our database. You will be able to get those to appear on the page with a single click!
+  > This product will query the Giphy API and store Cute Puppies gifs in our database. You will be able to get those to appear on the page with a single click!
 
 ## Quote from You ##
-  > "Shiba Inus are great! We have you to be able to see cute dogs in a nice way"
+  > "Cute Puppies are great! We have you to be able to see cute dogs in a nice way"
 
 ## How to Get Started ##
   > All you have to do is click to see your first Shiba.
 
 ## Customer Quote ##
-  > "I love this product so much but can only make it through 2 clicks because the shibas are too cute!"
+  > "I love this product so much but can only make it through 2 clicks because the puppies are too cute!"
 
 ## Closing and Call to Action ##
   > Click the index.html file to watch the magic happen!

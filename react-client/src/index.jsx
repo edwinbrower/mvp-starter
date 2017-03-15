@@ -9,12 +9,6 @@ class App extends React.Component {
     super(props);
     this.state = { 
       gifs: null,
-      currentGifIndex: 0,
-      currentGif: null,
-      gifIndex0: 0,
-      gifIndex1: 1,
-      gif0: null,
-      gif1: null,
       loves: 0
     }
   }
@@ -101,12 +95,11 @@ class App extends React.Component {
     });
   }
 
-
   render () {
     return (<div className="background">
       <h1>Puppy Party</h1>
       {console.log('app ', this.state)}
-      {this.state.gifs && <List gifs={this.state.gifs} currentGif={this.state.currentGif} currentGifIndex={this.state.currentGifIndex} gifIndex0={this.state.gifIndex0} gifIndex1={this.state.gifIndex1} handleListItemEntryTitleClick={this.handleListItemEntryTitleClick.bind(this)} handleGifLoveClick={this.handleGifLoveClick.bind(this)} loves={this.state.loves}/>}
+      {this.state.gifs && <List gifs={this.state.gifs} handleListItemEntryTitleClick={this.handleListItemEntryTitleClick.bind(this)} handleGifLoveClick={this.handleGifLoveClick.bind(this)}/>}
       Total love count: {this.state.loves}
     </div>)
   }

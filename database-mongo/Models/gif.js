@@ -7,9 +7,6 @@ var request = require('request');
 
 //creates the gif table structure
 var gifSchema = mongoose.Schema({
-  // _id: Number,
-  // i might need _id.  ill want to console log later to see if it appears and what it looks like
-  // might be able to just get random twice... uugggg
   id: String,
   slug: String,
   url: String,

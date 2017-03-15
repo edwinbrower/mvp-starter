@@ -24,7 +24,6 @@ class App extends React.Component {
 // will try to get favorites working again
 
   componentDidMount() { 
-    // this.getGifs('cute puppies');
     $.ajax({
       // url: '/gifs', 
       url: '/randomGifs',
@@ -32,8 +31,6 @@ class App extends React.Component {
         console.log('did mount', data);
         this.setState({
           gifs: [data, data]
-          // gif0: data[0],
-          // gif1: data[1]
         })
       },
       error: (err) => {
@@ -69,19 +66,10 @@ class App extends React.Component {
         if (gif === this.state.gifs[0]) {
           console.log('data then gifs', data, this.state.gifs);
           this.setState({
-            // currentGif: gif,
-            // currentGifIndex: Math.floor(Math.random() * 100),
-            // gifIndex0: random,
-            // gif0: this.state.gifs[random]
             gifs: [data[0], this.state.gifs[1] ]
           });
         } else {
           this.setState({
-            // currentGif: gif,
-            // currentGifIndex: Math.floor(Math.random() * 100),
-            // gifIndex1: random,
-            // gif1: this.state.gifs[random]
-            // gifs[1]: data
             gifs: [this.state.gifs[0], data[0]]
           });
         }
@@ -90,26 +78,6 @@ class App extends React.Component {
         console.log(err);
       }
     });
-
-
-  //   console.log('passed gif', gif);
-  //   console.log('state', this.state);
-  //   var random = Math.floor(Math.random() * 100);
-  //   if (gif === this.state.gif0) {
-  //     this.setState({
-  //       // currentGif: gif,
-  //       // currentGifIndex: Math.floor(Math.random() * 100),
-  //       gifIndex0: random,
-  //       gif0: this.state.gifs[random]
-  //     });
-  //   } else {
-  //     this.setState({
-  //       // currentGif: gif,
-  //       // currentGifIndex: Math.floor(Math.random() * 100),
-  //       gifIndex1: random,
-  //       gif1: this.state.gifs[random]
-  //     });
-  //   }
   }
 
   handleGifLoveClick(gif) {

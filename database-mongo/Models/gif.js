@@ -56,9 +56,9 @@ Gif.selectAll = function(callback) {
 //     }
 //   });
 // }; 
-var randomNum = Math.floor(Math.random() * Gif.count())
-Gif.selectRandom = function(callback) {
-  Gif.find().limit(-1).skip(randomNum).next();
+// var randomNum = Math.floor(Math.random() * 100);
+Gif.selectRandom = function() {
+  Gif.find().limit(-1).skip(Math.floor(Math.random() * 100)).next();
 };
 
 /*

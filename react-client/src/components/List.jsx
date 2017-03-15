@@ -5,13 +5,16 @@ const List = (props) => (
   <div>
     <h4> When a puppy's cuteness is too much to handle, say goodbye and wait for another puppy! </h4>
     {console.log('hello', props)}
-    <ListItem gif={props.gifs[props.gifIndex0]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
-    <ListItem gif={props.gifs[props.gifIndex1]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
+    <ListItem gif={props.gifs[0]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
+    <ListItem gif={props.gifs[1]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
   </div>
 )
+    // <ListItem gif={props.gifs[props.gifIndex0]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
+    // <ListItem gif={props.gifs[props.gifIndex1]} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>
 /// I WILL PASS DOWN STATE AS THE ID. NEED TO HANDLE CLICK
     // <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>
 
+    // { props.gifs.map(gif => <ListItem key={item.id}gif={gif} handleListItemEntryTitleClick={props.handleListItemEntryTitleClick} handleGifLoveClick={props.handleGifLoveClick} loves={props.loves}/>)}
 
 
 // <ListItem gif={props.gifs[ Math.floor(Math.random() * 100)]}/>

@@ -120,6 +120,8 @@ class App extends React.Component {
     //     console.log(err);
     //   }
     // });
+
+    // needs to update favorite get the gifs again
     this.setState({
       loves: ++this.state.loves
     });

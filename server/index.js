@@ -1,13 +1,18 @@
 var express = require('express');
 var db = require('../database-mongo/index');
 // var bodyParser = require('body-parser');
-var gifs = require('../database-mongo/Models/gif');
+var Gif = require('../database-mongo/Models/gif');
 var app = express();
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
+var randomNum = Math.floor(Math.random() * Gif.count())
+app.get('/randomGif', function(req, res) {
+  Gif.find().limit(-1).skip(randomNum).next();
+});
+
 app.get('/gifs', function (req, res) {
-  gifs.selectAll(function(err, data) {
+  Gif.selectAll(function(err, data) {
     if(err) {
       res.sendStatus(500);
     } else {
@@ -16,8 +21,16 @@ app.get('/gifs', function (req, res) {
   });
 });
 
+
+app.post('/gif/like', function(req, res) {
+  console.log('like', req);
+  // Gif.find();
+});
+
+
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
 
-  // module.exports = app;
+// might not need this?
+module.exports = app;

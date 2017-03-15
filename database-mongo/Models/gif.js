@@ -2,7 +2,7 @@ var db = require('../index.js');
 var mongoose = require('mongoose');
 var request = require('request');
 // var searchGiphy = require('.../server/lib/searchGiphy'); //// correct path 
-var autoIncrement = require("mongodb-autoincrement");
+// var autoIncrement = require("mongodb-autoincrement");
 // mongoose.plugin(autoIncrement.mongoosePlugin);
 
 //creates the gif table structure
@@ -36,15 +36,15 @@ Gif.selectAll = function(callback) {
   });
 };
 
-Gif.insertAll = function (arrayOfGifShape, callback) {
-  Gif.insertMany(arrayOfGifShape, function(err, gifs) {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, gifs);
-    }
-  });
-};
+// Gif.insertAll = function (arrayOfGifShape, callback) {
+//   Gif.insertMany(arrayOfGifShape, function(err, gifs) {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, gifs);
+//     }
+//   });
+// };
 
 // Gif.selectRandom = function(callback) {
 //   var randomIndex = Math.floor(Math.random() * 100);
@@ -61,15 +61,6 @@ Gif.selectRandom = function(callback) {
   Gif.find().limit(-1).skip(randomNum).next();
 };
 
-// Gif.clearTable = function(callback) {
-//   Gif.clear({}, function(err, gifs) {
-//     if (err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, gifs);
-//     }
-//   });
-// };
 /*
 var randomNum = Math.floor(Math.random() * Gif.count())
 var result = Gif.find().limit(-1).skip(randomNum).next()
@@ -80,14 +71,19 @@ var result = Gif.find().limit(-1).skip(randomNum).next()
 // });
 
 
+
+
 request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc6zaTOxFJmzC', function(err, response, body) {
   if (err) {
     console.log(err);
   } else {
-    // Gif.remove({});
-    // db.gifs.remove({});
-    // Gif.clearTable();
-    // console.log('data refreshed');
+    Gif.remove({}, function(err, gif) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('data deleted and refreshed');
+      }
+    });
 
     (JSON.parse(body)).data.forEach(function(gif) {
       var newGif = new Gif ({
@@ -102,6 +98,7 @@ request('http://api.giphy.com/v1/gifs/search?q=cute+puppies&limit=100&api_key=dc
           console.log(err);
         } else {
           // console.log(gif);
+          // data really gets added here but that would send 100 messages!
         }
       }); 
     });

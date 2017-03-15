@@ -1,4 +1,3 @@
-// import $ from 'jquery';
 require('jquery');
 
 var searchGiphy = ({key, query}, callback) => {
@@ -19,6 +18,4 @@ var searchGiphy = ({key, query}, callback) => {
   });
 };
 
-
 module.exports = searchGiphy;
-// export default searchGiphy;
